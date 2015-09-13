@@ -1,6 +1,10 @@
 # Search Jira Issues - Alfred 2 Workflow
 
-Forked from []
+Forked from [this repo](https://github.com/swissmanu/search-jira-issues-alfred-workflow) but adds the following:
+	- caching using file system (configured to 5 mins by default)
+	- newer Jira icons
+	- support for URL parameters i.e. escaping them, if your Jira version sends them in the icon url
+
 ![Workflow](screenshots/workflow.png)
 
 This workflow for Alfred 2 allows you to search issues on an Atlassian Jira installation. The queries used are customizable to your needs.
@@ -39,9 +43,10 @@ You have to create your own `config.json` file before you can use the new workfl
 | `maxResults` | Limit the number of issues to display. | `20` |
 | `emptySearchJql` | This JQL query is executed if you don't enter any search term after the workflows keyword. See [Atlassians JQL documentation](https://confluence.atlassian.com/display/JIRA/Advanced+Searching) for available query options. | `project = 'FOO' ORDER BY lastViewed` |
 | `searchJql` | This JQL query is executed if you enter a search term after the workflows keyword. Use `{query}` to pass the entered search term to JIRA's API. See [Atlassians JQL documentation](https://confluence.atlassian.com/display/JIRA/Advanced+Searching) for available query options. | `project = 'FOO' summary~'{query}' ORDER BY lastViewed` |
+| `cacheTTLinMins` | This is the amount of time in minutes your results will be cached on disk | `5` |
 
 ## Usage
-Open your Alfred prompt and start typing `jira`. The workflow will call JIRA's API with the given `emptySearchJql` JQL query if you enter no specific search term.
+Open your Alfred prompt and start typing `j`. The workflow will call JIRA's API with the given `emptySearchJql` JQL query if you enter no specific search term.
 As soon as you begin to type further, the `searchJql` JQL is used to fetch any matching issues.
 
 * Select an issue to open it in your default browser
@@ -50,6 +55,11 @@ As soon as you begin to type further, the `searchJql` JQL is used to fetch any m
 
 ## Caching
 The workflow uses the file system as a cache. The TTL can be set in config.json
+
+## Icons
+The workflow is bundled with a set of icons, but if you have custom or differently named ones, simply add a png with the task name.
+
+To find out the types of icon on your Jira instance, hit this url: https://{{YOUR_JIRA_INSTANCE_URL}}/rest/api/2/issuetype/
 
 ## Troubleshooting
 If Alfred is not able to retrieve any issues following fixes might help you:
