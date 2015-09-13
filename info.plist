@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>me.alabor.alfred-jira-issue-workflow</string>
+	<string>io.rockhoppr.alfred-jira-cache-workflow</string>
 	<key>category</key>
-	<string>Productivity</string>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>19FFBCD7-CE9A-422D-A67F-C34F466F7AD0</key>
@@ -13,6 +13,17 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>74F3C0D4-DE28-4454-AB85-FF627E2EA634</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>1BD2858F-A7C2-4F77-A40D-00063139B868</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B104F879-14F7-4D50-A5B0-E7CFD6214DAA</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -45,6 +56,14 @@
 				<key>modifiersubtext</key>
 				<string>Paste Issue Number to current Application...</string>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1BD2858F-A7C2-4F77-A40D-00063139B868</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Copy Issue URL</string>
+			</dict>
 		</array>
 		<key>98FBAD29-F77B-4A02-8F03-C8CCE7F37E8E</key>
 		<array>
@@ -59,7 +78,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Manuel Alabor</string>
+	<string>Daniel Choudhury forked from Manuel Alabor</string>
 	<key>description</key>
 	<string>Use Alfred to search for JIRA issues</string>
 	<key>disabled</key>
@@ -71,29 +90,20 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>ED5C9E91-42DE-4C89-AED7-E3FEF8411707</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>jira</string>
+				<string>j</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
@@ -117,17 +127,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>./extractIssueNumber.sh {query}</string>
-				<key>type</key>
-				<integer>5</integer>
+				<key>browser</key>
+				<string>com.google.Chrome</string>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>98FBAD29-F77B-4A02-8F03-C8CCE7F37E8E</string>
+			<string>ED5C9E91-42DE-4C89-AED7-E3FEF8411707</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -149,6 +161,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>./extractIssueNumber.sh {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>98FBAD29-F77B-4A02-8F03-C8CCE7F37E8E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>autopaste</key>
 				<true/>
 				<key>clipboardtext</key>
@@ -164,17 +195,53 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
 				<string>./extractIssueNumber.sh {query}</string>
 				<key>type</key>
-				<integer>5</integer>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>19FFBCD7-CE9A-422D-A67F-C34F466F7AD0</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>./extractUrl.sh {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1BD2858F-A7C2-4F77-A40D-00063139B868</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>B104F879-14F7-4D50-A5B0-E7CFD6214DAA</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -187,6 +254,11 @@
 		<dict>
 			<key>ypos</key>
 			<real>250</real>
+		</dict>
+		<key>1BD2858F-A7C2-4F77-A40D-00063139B868</key>
+		<dict>
+			<key>ypos</key>
+			<real>370</real>
 		</dict>
 		<key>2CAE61CE-AA3D-4C60-AC48-507D96B536FD</key>
 		<dict>
@@ -208,6 +280,11 @@
 			<key>ypos</key>
 			<real>140</real>
 		</dict>
+		<key>B104F879-14F7-4D50-A5B0-E7CFD6214DAA</key>
+		<dict>
+			<key>ypos</key>
+			<real>370</real>
+		</dict>
 		<key>ED5C9E91-42DE-4C89-AED7-E3FEF8411707</key>
 		<dict>
 			<key>ypos</key>
@@ -215,6 +292,6 @@
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>https://github.com/swissmanu/search-jira-issues-alfred-workflow</string>
+	<string>http://rockhoppr.io</string>
 </dict>
 </plist>
