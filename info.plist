@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>io.rockhoppr.alfred-jira-cache-workflow</string>
 	<key>category</key>
-	<string>Internet</string>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>19FFBCD7-CE9A-422D-A67F-C34F466F7AD0</key>
