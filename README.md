@@ -1,11 +1,13 @@
 # Search Jira Issues - Alfred 2 Workflow
 
 Forked from [this repo](https://github.com/swissmanu/search-jira-issues-alfred-workflow) but adds the following:
-	- caching using file system (configured to 5 mins by default)
-	- newer Jira icons
-	- support for URL parameters i.e. escaping them, if your Jira version sends them in the icon url
 
-![Workflow](screenshots/workflow.png)
+- caching using file system (configured to 5 mins by default)
+- newer Jira icons
+- support for URL parameters i.e. escaping them, if your Jira version sends them in the icon url
+- Modifiers: Ctrl, Alt and Cmd, give them a try :)
+
+![Workflow](screenshot.png)
 
 This workflow for Alfred 2 allows you to search issues on an Atlassian Jira installation. The queries used are customizable to your needs.
 
@@ -54,12 +56,12 @@ As soon as you begin to type further, the `searchJql` JQL is used to fetch any m
 * Press `alt` and select an issue copy-pastes the issues number to the current application.
 
 ## Caching
-The workflow uses the file system as a cache. The TTL can be set in config.json
+The workflow uses the file system as a cache to give you quick results. The TTL can be set in config.json
 
 ## Icons
 The workflow is bundled with a set of icons, but if you have custom or differently named ones, simply add a png with the task name.
 
-To find out the types of icon on your Jira instance, hit this url: https://{{YOUR_JIRA_INSTANCE_URL}}/rest/api/2/issuetype/
+To find out the types of icon on your Jira instance, hit this url: `https://{{YOUR_JIRA_INSTANCE_URL}}/rest/api/2/issuetype/`
 
 ## Troubleshooting
 If Alfred is not able to retrieve any issues following fixes might help you:
@@ -69,6 +71,7 @@ If Alfred is not able to retrieve any issues following fixes might help you:
 
 # License
 Copyright (c) 2015 Daniel Choudhury
+Most of the credit goes to the original writer of this workflow,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
