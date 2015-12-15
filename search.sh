@@ -1,5 +1,5 @@
 #!/bin/sh
-
+PATH="/usr/local/bin:$PATH"
 # Get Alfreds query parameter from CLI arguments:
 query=$1
 
