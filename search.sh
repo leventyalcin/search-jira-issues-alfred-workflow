@@ -21,7 +21,7 @@ queryJql=`echo $queryJql | sed s/{query}/$query/g`
 filename="cache/jira-$query.txt"
 
 # Remove files older than five minutes
-rm `find cache -mmin +${cacheTTLinMins}`
+rm `ping -c 1 -t 1 8.8.8.8 && find cache -mmin +${cacheTTLinMins}`
 
 # Create directory if required
 mkdir -p cache
